@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Secret Message</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+  <style>
+    /* Enhanced Envelope & Letter Styles */
+    .message-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(45deg, var(--bg-color), var(--second-bg-color));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .envelope {
+      width: min(90vw, 500px);
+      height: min(70vw, 350px);
+      background: var(--main-color);
+      border: 2px solid var(--main-color);
+      border-radius: 12px;
+      position: relative;
+      cursor: pointer;
+      perspective: 1000px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    .envelope:hover {
+      transform: translateY(-5px);
+    }
+
+    .envelope .flap {
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      width: calc(100% + 2px);
+      height: 50%;
+      background: linear-gradient(160deg, var(--main-color), #e91e63);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 3;
+    }
+
+    .envelope .letter {
+      position: absolute;
+      bottom: -480px;
+      left: 50%;
+      width: 95%;
+      height: 450px;
+      background: #fff9f0;
+      padding: 2rem;
+      box-sizing: border-box;
+      border-radius: 10px;
+      overflow-y: auto;
+      transform: translateX(-50%);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+      background-size: 100% 2rem;
+      visibility: hidden;
+      opacity: 0;
+      z-index: 4;
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(180deg) translateZ(20px);
+      opacity: 0.8;
+    }
+
+    .envelope.open .letter {
+      bottom: -20px;
+      transform: translateX(-50%) rotateZ(-2deg);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .letter-content {
+      color: #000000;
+      font-size: 1.4rem;
+      line-height: 2rem;
+      font-family: 'Dancing Script', cursive;
+      position: relative;
+    }
+
+    .letter-content h2 {
+      color: #000000;
+      margin-bottom: 1.5rem;
+      font-size: 2.8rem;
+      text-align: center;
+    }
+
+    .letter-content p {
+      margin-bottom: 1.5rem;
+      text-indent: 2rem;
+    }
+
+    .letter-content strong {
+      display: block;
+      text-align: right;
+      margin-top: 2rem;
+      font-size: 2rem;
+      color: #000000;
+    }
+
+    /* Scrollbar styling */
+    .letter::-webkit-scrollbar {
+      width: 8px;
+    }
+    .letter::-webkit-scrollbar-thumb {
+      background: var(--main-color);
+      border-radius: 4px;
+    }
+
+    /* Heart Animation */
+    .heart {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #000000;
+      animation: pulse 1.5s infinite;
+      font-size: 2.5rem;
+    }
+
+    @keyframes pulse {
+      0% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.2); }
+      100% { transform: translateX(-50%) scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .letter-content {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+      }
+      .envelope {
+        width: 90vw;
+        height: 60vw;
+      }
+      .envelope .letter {
+        height: 60vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="message-section">
+    <div class="envelope" onclick="toggleMessage(this)">
+      <div class="flap"></div>
+      <div class="letter" id="letter">
+        <div class="letter-content">
+          <h2>To My Bal 💜</h2>
+          <p>
+            Two years… Can you believe it? It still feels like a beautiful dream being loved by you. Our relationship isn’t perfect—it’s not like a fairytale or a Wattpad story. But it’s real, and it’s ours. And if there’s one thing I’m sure of, it’s this: I will choose you—every single day. Even on the days you feel unlovable, even when life gets heavy… I’ll still love you, with everything I have.
+          </p>
+          <p>
+            I miss your touch—your skin, your warmth. I miss the way you make me feel like I can truly be myself. Every moment we’ve shared—our monthsaries, the laughs, the petty fights, the deep talks, the simple joys—I carry them in my heart like treasures. And as we celebrate this milestone, I wish more than anything that I could hold you in my arms. Just to remind you how deeply special you are to me.
+          </p>
+          <p>
+            Thank you, bal, for loving me. You are my light—my reason to become a better man. When things felt dark, you were my hope. Life hasn’t always been easy for us, but I believe that in God’s perfect time, all the waiting, all the distance, all the effort… it will be worth it. I believe we’ll reach the day when we’ve both achieved our dreams and are finally ready to build our forever together.
+          </p>
+          <p>
+            So for now, let’s keep growing. Let’s chase our goals, become the best versions of ourselves, and hold on to the love that keeps us going. Someday, we’ll wake up under the same roof, exploring the world hand in hand, building a life and a family with so much love. I can’t wait for that day… but until then, I’ll keep loving you from wherever I am.
+          </p>
+          <p>
+            Happy 2nd Anniversary, my bal. I purple you so much!💜
+          </p>
+          <p>
+            Always yours,
+            <br>
+            <strong>Kal-el</strong>
+          </p>
+          <div class="heart">💜</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function toggleMessage(el) {
+      el.classList.toggle('open');
+      if (el.classList.contains('open')) {
+        document.getElementById('letter').scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --bg-color: #080808;
+  --second-bg-color: #131313;
+  --text-color: white;
+  --main-color: purple;
+}
+
+html {
+  font-size: 60%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  padding: 4rem 12% 4rem;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+}
+.logo {
+  font-size: 3rem;
+  color: var(--text-color);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .3s ease;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
+.logo span {
+  text-shadow: 0 0 25px var(--main-color);
+}
+#menu-icon {
+  font-size: 3.6rem;
+  color: var(--main-color);
+  display: none;
+}
+
+/* Nav links */
+.navbar a {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-left: 4rem;
+  font-weight: 500;
+  transition: color .3s ease;
+  border-bottom: 3px solid transparent;
+}
+.navbar a:hover,
+.navbar a.active {
+  color: var(--main-color);
+  border-bottom: 3px solid var(--main-color);
+}
+
+/* Primary button */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color);
+  border-radius: 4rem;
+  font-size: 1.6rem;
+  color: black;
+  transition: transform .3s ease;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px var(--main-color);
+}
+
+/* Button groups (e.g. on Home section) */
+.btn-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.btn-group a:nth-of-type(2) {
+  background-color: black;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+  box-shadow: 0 0 25px transparent;
+}
+.btn-group a:nth-of-type(2):hover {
+  background-color: var(--main-color);
+  color: black;
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+section {
+  min-height: 100vh;
+  padding: 10rem 12% 10rem;
+}
+
+/* Home */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15rem;
+}
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  text-align: left;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.home-content h1 {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.text-animation {
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin: 1rem 0 3rem;
+  position: relative;
+}
+.text-animation span::before {
+  content: "Bal";
+  color: var(--main-color);
+  animation: words 20s infinite;
+}
+.text-animation span::after {
+  content: "";
+  background-color: var(--bg-color);
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  border-left: 3px solid var(--bg-color);
+  right: -8px;
+  animation: cursor .6s infinite, typing 20s steps(14) infinite;
+}
+@keyframes cursor {
+  to { border-left-color: var(--main-color); }
+}
+@keyframes words {
+  0%,20%   { content: "Bal"; }
+  21%,40%  { content: "Langging"; }
+  41%,60%  { content: "Lablab"; }
+  61%,80%  { content: "Shokoy"; }
+  81%,100% { content: "Sharky"; }
+}
+@keyframes typing {
+  10%,15%,30%,35%,50%,55%,70%,75%,90%,95% { width: 0; }
+  5%,20%,25%,40%,45%,60%,65%,80%,85% { width: calc(100% + 8px); }
+}
+.home-content p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.8;
+  max-width: 1000px;
+}
+.home-img img {
+  width: 32vw;
+  border-radius: 50%;
+  box-shadow: 0 0 25px var(--main-color);
+  transition: box-shadow .4s ease-in-out;
+}
+.home-img img:hover {
+  box-shadow:
+    0 0 25px var(--main-color),
+    0 0 50px var(--main-color),
+    0 0 100px var(--main-color);
+}
+
+/* Login */
+.education .heading {
+  font-size: 5rem;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.login-card {
+  background: var(--main-color);
+  padding: 3rem;
+  border-radius: 3rem;
+  max-width: 600px;
+  margin: auto;
+}
+.login-card h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+.login-card form label {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+.login-card form input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.6rem;
+  border: 2px solid white;
+  border-radius: 2rem;
+  background: transparent;
+  color: white;
+}
+
+/* About */
+.services .heading {
+  font-size: 5rem;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+.about-img img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 2rem;
+  box-shadow: 0 0 25px var(--main-color);
+}
+.services-info {
+  max-width: 600px;
+}
+.services-info p {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* Pictures */
+.campaign-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+}
+.card {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 2rem;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+.card .imgBx img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .home, .about-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  .home-img, .about-img {
+    margin-top: 2rem;
+  }
+  .btn-group {
+    justify-content: center;
+  }
+}
+
+/* GENERAL RESET AND STYLES */
+body, html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* PICTURE SECTION */
+.memo {
+  position: relative;
+  min-height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.memo::before {
+  content: "Kal - El & Kliah Pictures";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.2vw;
+  font-weight: bold;
+  color: purple;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+/* Activate fixed text only when in section */
+.memo.active::before {
+  opacity: 1;
+}
+
+.picture-grid {
+  position: flex;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+  padding: 45px 5px;
+}
+
+.picture-row {
+  display: flex;
+  justify-content: center;
+  gap: 410px;
+  position: relative;
+  transform: translateX(var(--random-shift));
+  transition: transform 0.3s;
+}
+
+.picture-card {
+  width: 300px;
+  height: 310px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  animation: floatIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes floatIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.picture-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
