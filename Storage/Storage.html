@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clayah's Organizer</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="storage.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        KAL - EL<br />
+        <span class="amp">&amp;</span><br />
+        KLIAH
+      </div>
+      <nav class="nav-list">
+        <a href="Storage.html" class="nav-item active">
+          <i class="fas fa-bell"></i>
+          <span>REMINDERS</span>
+        </a>
+        <a href="schoolwork.html" class="nav-item">
+          <i class="fas fa-briefcase"></i>
+          <span>SCHOOL/WORK</span>
+        </a>
+        <a href="archive.html" class="nav-item">
+          <i class="fas fa-archive"></i>
+          <span>ARCHIVE</span>
+        </a>
+        <a href="schedule.html" class="nav-item">
+          <i class="far fa-calendar-alt"></i>
+          <span>SCHEDULE</span>
+        </a>
+      </nav>
+      <div class="motivation">
+        <div class="mot-heading">
+          <strong>Bal’s Motivation</strong>
+          <i class="fas fa-fire-alt"></i>
+        </div>
+        <p>
+          Good luck my babyy! 🍀✨ Kayang-kaya mo 'yan, sus! 💪🔥 Do your best! 🙌❤️ I love you so much! 🥰💖
+        </p>
+      </div>
+    </div>
+    <div class="profile">
+      <i class="fas fa-user-circle"></i>
+      <div>
+        Clayah Bianca Baltazar<br />
+        <span>(Vlad’s Girlfriend)</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+    <div class="docs-wrapper">
+      <section class="docs-panel">
+        <header class="docs-header">
+          <h1>My Reminders</h1>
+          <div class="search-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="search" id="searchReminders" placeholder="Search reminders..." />
+          </div>
+        </header>
+
+        <!-- Reminders List -->
+        <div class="reminders-list">
+          <ul id="remindersContainer">
+            <!-- JS will populate reminders here -->
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- Right Panel -->
+    <aside class="side-panels">
+      <!-- Mini Calendar -->
+      <section class="panel calendar-summary">
+        <h3>Calendar</h3>
+        <div id="mini-calendar"></div>
+      </section>
+      
+      <!-- To-Do List Section -->
+      <section class="panel todos">
+        <div class="todos-header">
+          <h3>TO DO LIST</h3>
+          <button id="add-todo" aria-label="Add to do item">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+        <ul id="todoList" class="list-container">
+          <!-- JS will inject todos here -->
+        </ul>
+      </section>
+    </aside>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+  <script src="storage.js" defer></script>
+</body>
+</html>
